@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class QuedaLivre {
-	
+public class QuedaLivre 
+{
 	final static double ACELERACAO_GRAVIDADE = 9.8;
 	
 	public static class DadosQueda
