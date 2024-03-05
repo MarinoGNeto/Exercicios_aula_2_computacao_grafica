@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class QuedaLivre 
 {
-	final static double ACELERACAO_GRAVIDADE = 9.8;
+	final static double GRAVIDADE = 9.8;
 	
 	public static class DadosQueda
 	{
@@ -65,16 +65,16 @@ public class QuedaLivre
         while (dAlturaAtual > 0) 
         {
         	dTempo += intervaloTempo;
-            double dProximaAltura = alturaInicial - ACELERACAO_GRAVIDADE * Math.pow(dTempo, 2) / 2;
-            dVelocidade =  ACELERACAO_GRAVIDADE * dTempo;
+            double dProximaAltura = alturaInicial - GRAVIDADE * Math.pow(dTempo, 2) / 2;
+            dVelocidade =  GRAVIDADE * dTempo;
 
             listaDadosQueda.add(new DadosQueda(dTempo, dProximaAltura, dVelocidade));
             
             if (dProximaAltura <= 0) 
             {
-            	dTempo = Math.sqrt((2 * alturaInicial) / ACELERACAO_GRAVIDADE);
+            	dTempo = Math.sqrt((2 * alturaInicial) / GRAVIDADE);
             	dAlturaAtual = 0;
-            	dVelocidade = ACELERACAO_GRAVIDADE * dTempo;
+            	dVelocidade = GRAVIDADE * dTempo;
                 
             	listaDadosQueda.add(new DadosQueda(dTempo, dProximaAltura, dVelocidade));
             } 
