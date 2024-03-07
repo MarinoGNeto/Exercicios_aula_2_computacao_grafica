@@ -15,7 +15,7 @@ public class PenduloSimplesTest {
         double tempo = 1.0;
 
         // Valor esperado calculado manualmente
-        double valorEsperado = anguloRadiano * Math.cos(Math.sqrt((9.8 * massa / comprimentoCorda)) * tempo);
+        double valorEsperado = anguloRadiano * Math.cos(Math.sqrt((9.81 * massa / comprimentoCorda)) * tempo);
 
         // Chamada do método a ser testado
         double valorCalculado = PenduloSimples.calcularAngulo(comprimentoCorda, massa, anguloRadiano, tempo);

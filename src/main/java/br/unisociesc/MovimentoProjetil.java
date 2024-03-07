@@ -6,9 +6,17 @@ import java.util.Scanner;
 
 public class MovimentoProjetil {
 
+    /**
+     * Gravidade da Terra
+     */
+    private static final double GRAVIDADE = 9.81;
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
+        /**
+         * Parâmetros necessários para o movimento do projetil.
+         */
         System.out.print("Insira a velocidade inicial (em m/s): ");
         double velocidadeInicial = scanner.nextDouble();
 
@@ -33,7 +41,6 @@ public class MovimentoProjetil {
     }
 
     public static double[][] calculoMovimentoProjetil(double velocidadeInicial, double angulo, double massaProjetil) {
-        double gravidade = 9.81;
         double velocidadeInicialHorizontal = velocidadeInicial * Math.cos(angulo);
         double velocidadeInicialVertical = velocidadeInicial * Math.sin(angulo);
 
@@ -43,7 +50,7 @@ public class MovimentoProjetil {
         List<double[]> posicoesList = new ArrayList<>();
 
         while (true) {
-            double forcaGravitacional = massaProjetil * gravidade;
+            double forcaGravitacional = massaProjetil * GRAVIDADE;
             double posicaoX = velocidadeInicialHorizontal * tempoTotal;
             double posicaoY = (velocidadeInicialVertical * tempoTotal) - (0.5 * forcaGravitacional / massaProjetil * Math.pow(tempoTotal, 2));
 

@@ -7,7 +7,7 @@ public class PenduloSimples {
     /**
      * Gravidade da Terra
      */
-    private static final double GRAVIDADE = 9.8;
+    private static final double GRAVIDADE = 9.81;
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
