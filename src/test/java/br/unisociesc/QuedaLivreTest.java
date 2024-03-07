@@ -1,10 +1,8 @@
 package br.unisociesc;
 
-import junit.framework.TestCase;
+import org.junit.Test;
 
 import java.util.List;
-
-import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
@@ -13,26 +11,24 @@ public class QuedaLivreTest {
 	@Test
     public void shouldBeAbleToCalculateQuedaLivre() 
     {
-    	  double alturaInicial = 100;
-          double intervaloTempo = 1;
-          List<QuedaLivre.DadosQueda> listaDadosQueda = QuedaLivre.calculaExibePosicaoVelocidadeQueda(intervaloTempo, alturaInicial);
+        double alturaInicial = 50;
+        double intervaloTempo = 1;
+        List<QuedaLivre.DadosQueda> estados = QuedaLivre.calculaExibePosicaoVelocidadeQueda(intervaloTempo, alturaInicial);
 
-          double[][] listaDadosEntrada = {
-              {0.0, 200.0, 0.0},
-              {1.0, 95.1, 9.81},
-              {2.0, 80.38, 19.62},
-              {3.0, 55.85, 29.43},
-              {4.0, 21.51, 39.24},
-              {4.51, 0.0, 44.29}
-          };
+        double[][] dadosQuedaEsperados = {
+                {0.0, 50.0, 0.0},
+                {1.0, 45.1, 9.81},
+                {2.0, 30.4, 19.6},
+                {3.0, 5.9, 29.40},
+                {3.20, 00.00, 31.3},
+        };
 
-          assertEquals(listaDadosEntrada.length, listaDadosQueda.size());
+        assertEquals(dadosQuedaEsperados.length, estados.size());
 
-          for (int i = 0; i < listaDadosEntrada.length; i++) 
-          {
-              assertEquals(listaDadosEntrada[i][0], listaDadosQueda.get(i).GetTempo());
-              assertEquals(listaDadosEntrada[i][1], listaDadosQueda.get(i).GetAltura());
-              assertEquals(listaDadosEntrada[i][2], listaDadosQueda.get(i).GetVelocidade());
-          }
+        for (int i = 0; i < dadosQuedaEsperados.length; i++) {
+            assertEquals(dadosQuedaEsperados[i][0], estados.get(i).GetTempo(), 0.01);
+            assertEquals(dadosQuedaEsperados[i][1], estados.get(i).GetAltura(), 0.01);
+            assertEquals(dadosQuedaEsperados[i][2], estados.get(i).GetVelocidade(), 0.01);
+        }
     }
 }
