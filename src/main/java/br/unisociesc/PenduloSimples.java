@@ -33,10 +33,15 @@ public class PenduloSimples {
             /**
              * Calculo do ângulo
              */
-            double angulo = anguloRadiano * Math.cos(Math.sqrt((GRAVIDADE * massa / comprimentoCorda)) * tempo);
+            double angulo = calcularAngulo(comprimentoCorda, massa, anguloRadiano, tempo);
 
             System.out.printf("Para o tempo %.2f segundos, o ângulo do pêndulo é de %.2f graus.\n", tempo, Math.toDegrees(angulo));
         }
+    }
+
+    public static double calcularAngulo(double comprimentoCorda, double massa, double anguloRadiano, double tempo) {
+        return anguloRadiano * Math.cos(Math.sqrt((GRAVIDADE * massa / comprimentoCorda)) * tempo);
+
     }
 
 }
