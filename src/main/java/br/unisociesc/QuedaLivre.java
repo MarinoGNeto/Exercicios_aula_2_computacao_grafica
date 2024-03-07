@@ -6,8 +6,10 @@ import java.util.Scanner;
 
 public class QuedaLivre 
 {
+	/*Valor da gravidade*/
 	final static double GRAVIDADE = 9.8;
 	
+	/*Implementação da classe de dados da Queda Livre, usado para realizar os calculos*/
 	public static class DadosQueda
 	{
 		 private final double dTempo;
@@ -40,19 +42,27 @@ public class QuedaLivre
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
+        /*Informa os dados necessarios para o calculo*/
         System.out.print("Digite a altura inicial do objeto (metros): ");
         double dPosicaoInicial = scanner.nextDouble();
 
         System.out.print("Digite o intervalo de tempo (segundos): ");
         double dIntervaloTempo = scanner.nextDouble();
 
-        List<DadosQueda> listaDadosQueda = calculaExibePosicaoVelocidadeQueda(dPosicaoInicial, dIntervaloTempo);
-        exibeResultadosQuedaLivre(listaDadosQueda);
+        List<DadosQueda> listaDadosQueda = calculaPosicaoVelocidadeQueda(dPosicaoInicial, dIntervaloTempo);
+        
+        /*Informa resultados finais*/
+        System.out.println("Tempo (s)\tPosição (m)\tVelocidade (m/s)");
+        for (DadosQueda dadosQueda : listaDadosQueda) 
+        {
+        	System.out.printf("%.2f\t\t%.2f\t\t%.2f%n", dadosQueda.GetTempo(), dadosQueda.GetAltura(), dadosQueda.GetVelocidade());
+        }
         
         scanner.close();
     }
     
-    public static List<DadosQueda> calculaExibePosicaoVelocidadeQueda(double intervaloTempo, double alturaInicial) 
+    /*Metodo para calculo da Posição, Velocidade da Queda Livre do objeto*/
+    public static List<DadosQueda> calculaPosicaoVelocidadeQueda(double intervaloTempo, double alturaInicial) 
     {
     	 List<DadosQueda> listaDadosQueda = new ArrayList<>();
     	
@@ -86,14 +96,5 @@ public class QuedaLivre
         }
         
         return listaDadosQueda;
-    }
-    
-    private static void exibeResultadosQuedaLivre(List<DadosQueda> listaDadosQueda) 
-    {
-        System.out.println("Tempo (s)\tPosição (m)\tVelocidade (m/s)");
-        for (DadosQueda dadosQueda : listaDadosQueda) 
-        {
-        	System.out.printf("%.2f\t\t%.2f\t\t%.2f%n", dadosQueda.GetTempo(), dadosQueda.GetAltura(), dadosQueda.GetVelocidade());
-        }
     }
 }

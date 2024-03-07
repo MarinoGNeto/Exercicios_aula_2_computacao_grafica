@@ -1,7 +1,5 @@
 package br.unisociesc;
 
-import junit.framework.TestCase;
-
 import java.util.List;
 
 import org.junit.Test;
@@ -15,7 +13,7 @@ public class QuedaLivreTest {
     {
     	  double alturaInicial = 100;
           double intervaloTempo = 1;
-          List<QuedaLivre.DadosQueda> listaDadosQueda = QuedaLivre.calculaExibePosicaoVelocidadeQueda(intervaloTempo, alturaInicial);
+          List<QuedaLivre.DadosQueda> listaDadosQueda = QuedaLivre.calculaPosicaoVelocidadeQueda(intervaloTempo, alturaInicial);
 
           double[][] listaDadosEntrada = {
               {0.0, 200.0, 0.0},
