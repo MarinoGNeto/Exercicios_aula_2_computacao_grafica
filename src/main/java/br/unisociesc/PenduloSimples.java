@@ -18,9 +18,6 @@ public class PenduloSimples {
         System.out.print("Insira o comprimento da corda: ");
         double comprimentoCorda = scanner.nextDouble();
 
-        System.out.print("Insira o intervalo de tempo: ");
-        double intervaloTempo = scanner.nextDouble();
-
         System.out.print("Insira a massa do objeto: ");
         double massa = scanner.nextDouble();
 
@@ -32,7 +29,7 @@ public class PenduloSimples {
          */
         double periodo = 2 * Math.PI * Math.sqrt(comprimentoCorda / (GRAVIDADE * massa));
 
-        for (double tempo = 0; tempo <= intervaloTempo; tempo++) {
+        for (double tempo = 0; tempo <= periodo; tempo++) {
             /**
              * Calculo do ângulo
              */
