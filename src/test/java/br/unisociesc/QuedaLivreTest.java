@@ -15,6 +15,7 @@ public class QuedaLivreTest {
         double intervaloTempo = 1;
         List<QuedaLivre.DadosQueda> estados = QuedaLivre.calculaExibePosicaoVelocidadeQueda(intervaloTempo, alturaInicial);
 
+
         double[][] dadosQuedaEsperados = {
                 {0.0, 50.0, 0.0},
                 {1.0, 45.1, 9.81},

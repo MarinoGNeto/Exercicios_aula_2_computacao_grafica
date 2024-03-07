@@ -5,6 +5,10 @@ import java.util.List;
 import java.util.Scanner;
 
 public class QuedaLivre {
+
+    /**
+     * Gravidade da Terra
+     */
     final static double GRAVIDADE = 9.8;
 
     public static class DadosQueda {
